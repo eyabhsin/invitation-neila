@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دعوة عقد قران - مرام و قصي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 100vw;
+    overflow-x: hidden;
+    font-family: 'Amiri', serif;
+  }
+
+  /* ===================== VIDEO INTRO ===================== */
+
+  .video-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: opacity 1s ease;
+    cursor: pointer;
+  }
+
+  .video-intro.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .video-intro video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-intro-skip {
+    position: absolute;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Amiri', serif;
+    font-size: 14px;
+    color: #f8f1e7;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 8px 20px;
+    z-index: 3;
+  }
+
+  html.intro-active,
+  body.intro-active {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  body.intro-active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  /* ===================== COMPOSANT 1 ===================== */
+
+  .scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('background swan.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #f8f1e7;
+    padding: 40px 24px;
+    max-width: 780px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  @keyframes floatInOnce {
+    0%   { opacity: 0; transform: translateY(30px); filter: blur(6px); }
+    100% { opacity: 1; transform: translateY(0);     filter: blur(0); }
+  }
+
+  .bism {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    color: #bfa0b9;
+    text-shadow: 0 0 18px rgba(255, 217, 142, 0.5);
+    opacity: 0;
+    animation: floatInOnce 1.6s ease-out 0.2s forwards;
+  }
+
+  .verset {
+    font-size: clamp(17px, 2.2vw, 24px);
+    line-height: 1.9;
+    color: #090909;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    opacity: 0;
+    animation: floatInOnce 1.6s ease-out 1.1s forwards;
+  }
+
+  .sourate {
+    font-size: clamp(13px, 1.5vw, 17px);
+    color: #090909;
+    opacity: 0;
+    animation: floatInOnce 1.4s ease-out 2.0s forwards;
+  }
+
+  .divider {
+    width: 110px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ffd98e, transparent);
+    opacity: 0;
+    animation: floatInOnce 1.4s ease-out 2.6s forwards;
+    margin: 4px 0;
+  }
+
+  .tashrif {
+    font-size: clamp(16px, 2vw, 22px);
+    line-height: 1.9;
+    color: #090909;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    opacity: 0;
+    animation: floatInOnce 1.6s ease-out 3.2s forwards;
+  }
+
+  .noms {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: clamp(34px, 5.2vw, 56px);
+    font-weight: 700;
+    color: #bfa0b9;
+    text-shadow: 0 0 22px rgba(255, 217, 142, 0.55);
+    opacity: 0;
+    animation: floatInOnce 1.8s ease-out 4.2s forwards;
+  }
+
+  /* ===================== COMPOSANT 2 ===================== */
+
+  .scene2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('background2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .content2 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #f8f1e7;
+    padding: 40px 24px;
+    max-width: 780px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .bimachiaallah {
+    font-size: clamp(30px, 3vw, 30px);
+    font-weight: bold;
+    color: #bfa0b9;
+    text-shadow: 0 0 18px rgba(255, 217, 142, 0.5);
+    opacity: 0;
+    animation: floatInOnce 1.6s ease-out 0.2s forwards;
+  }
+
+  /* ---- carte à gratter ---- */
+  .scratch-wrap {
+    position: relative;
+    width: min(78vw, 320px);
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    opacity: 0;
+    animation: floatInOnce 1.8s ease-out 1s forwards;
+    touch-action: none;
+  }
+
+  .scratch-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .scratch-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+  }
+
+  .scratch-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Amiri', serif;
+    font-size: 14px;
+    color: #565654;
+    opacity: 0.85;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
+
+  /* ===================== COMPOSANT 3 ===================== */
+
+  .scene3 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('background2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .content3 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #f8f1e7;
+    padding: 40px 24px;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .histoire-intro {
+    font-size: clamp(22px, 2.2vw, 30px);
+    line-height: 2;
+    margin-top: 20vh;
+    color: #090909;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    opacity: 0;
+    animation: floatInOnce 1.8s ease-out 0.2s forwards;
+  }
+
+  .kids-photo {
+    width: min(70vw, 300px);
+    border-radius: 16px;
+    opacity: 0;
+    animation: floatInOnce 1.8s ease-out 1.4s forwards;
+  }
+
+
+  /* ===================== COMPOSANT 4 : لمكان (x2) ===================== */
+
+  .scene4 {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('background2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 60px 0;
+  }
+
+  .content4 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #f8f1e7;
+    padding: 20px 24px;
+    max-width: 780px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .venue-intro {
+    font-size: clamp(20px, 2.6vw, 28px);
+    color: #090909;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    opacity: 0;
+    animation: floatInOnce 1.6s ease-out 0.2s forwards;
+  }
+
+  .venue-name {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 700;
+    color: #bfa0b9;
+    text-shadow: 0 0 18px rgba(255, 217, 142, 0.5);
+    opacity: 0;
+    animation: floatInOnce 1.6s ease-out 1s forwards;
+  }
+
+  .venue-photo {
+    width: min(80vw, 340px);
+    border-radius: 16px;
+    box-shadow: 0 0 0 2px rgba(255, 217, 142, 0.55), 0 12px 40px rgba(0,0,0,0.4);
+    opacity: 0;
+    animation: floatInOnce 1.8s ease-out 1.8s forwards;
+  }
+
+  .venue-maps-embed {
+    width: min(80vw, 340px);
+    height: 220px;
+    border: 0;
+    border-radius: 14px;
+    box-shadow: 0 0 0 2px rgba(255, 217, 142, 0.55), 0 12px 30px rgba(0,0,0,0.4);
+    opacity: 0;
+    animation: floatInOnce 1.8s ease-out 2.6s forwards;
+  }
+
+  .venue-maps-btn {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 12px 30px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #d9b98e, #bfa0b9);
+    color: #2c2c2c;
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    opacity: 0;
+    animation: floatInOnce 1.6s ease-out 3.2s forwards;
+  }
+
+  /* ===================== COMPOSANT 5 : برنامج الحفل (timeline centrée) ===================== */
+
+  .scene5 {
+    position: relative;
+    width: 100%;
+    background-image: url('background2.jpg');
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+  }
+
+  .timeline-scroll {
+    position: relative;
+    width: 100%;
+  }
+
+  .timeline-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 60px;
+    overflow: hidden;
+  }
+
+  .timeline-title {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: clamp(28px, 4.5vw, 44px);
+    font-weight: 700;
+    color: #bfa0b9;
+    text-shadow: 0 0 18px rgba(255, 217, 142, 0.5);
+    margin-bottom: 30px;
+  }
+
+  .timeline-track {
+    position: relative;
+    width: min(90vw, 420px);
+    flex: 1;
+    margin-bottom: 40px;
+  }
+
+  /* ligne centrée */
+  .timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: linear-gradient(180deg, transparent, #bfa0b9, #d9b98e, #bfa0b9, transparent);
+    opacity: 0.7;
+  }
+
+  /* cygne centré sur la ligne */
+  .timeline-swan {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 46px;
+    height: 46px;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    transition: top 0.05s linear;
+    pointer-events: none;
+  }
+
+  .timeline-swan img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    box-shadow: 0 0 14px rgba(255, 217, 142, 0.6);
+  }
+
+  .timeline-event {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0;
+    opacity: 0.35;
+    transition: opacity 0.4s ease;
+  }
+
+  .timeline-event.active {
+    opacity: 1;
+  }
+
+  /* point centré exactement sur la ligne */
+  .event-dot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%) scale(1);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #101010;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.5);
+    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    z-index: 2;
+  }
+
+  .timeline-event.active .event-dot {
+    background: #bfa0b9;
+    box-shadow: 0 0 12px rgba(245, 160, 239, 0.8);
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+
+  /* texte collé juste à droite de la ligne centrale */
+  .event-label {
+    position: absolute;
+    right: 50%;
+    top: 0;
+    transform: translateY(-50%);
+    margin-right: 22px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .event-time {
+    display: block;
+    font-family: 'Aref Ruqaa', serif;
+    font-size: clamp(18px, 2.6vw, 24px);
+    color: #090909;
+    font-weight: 700;
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+  }
+
+  .timeline-event.active .event-time {
+    color: #bfa0b9;
+    text-shadow: 0 0 14px rgba(245, 160, 239, 0.8);
+  }
+
+  .event-title {
+    display: block;
+    font-size: clamp(14px, 1.8vw, 17px);
+    color: #101010;
+  }
+
+  .timeline-hint {
+    font-size: 14px;
+    color: #82807d;
+    opacity: 0.75;
+  }
+
+  /* ===================== COMPOSANT 6 : Réservation / RSVP ===================== */
+
+  .scene7 {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('background2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 60px 0;
+  }
+
+  .content7 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px 24px;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    width: 100%;
+  }
+
+  .rsvp-title {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 700;
+    color: #bfa0b9;
+    text-shadow: 0 0 18px rgba(255, 217, 142, 0.5);
+    opacity: 0;
+    animation: floatInOnce 1.6s ease-out 0.2s forwards;
+  }
+
+  .rsvp-sub {
+    font-size: clamp(15px, 2vw, 18px);
+    color: #090909;
+    opacity: 0;
+    animation: floatInOnce 1.6s ease-out 0.9s forwards;
+  }
+
+  .rsvp-btn {
+    padding: 14px 38px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #d9b98e, #bfa0b9);
+    color: #090909;
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    opacity: 0;
+    animation: floatInOnce 1.6s ease-out 1.6s forwards;
+  }
+
+  .rsvp-form {
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 340px;
+    background: rgba(255,255,255,0.55);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+
+  .rsvp-form.open {
+    display: flex;
+  }
+
+  .rsvp-form input {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #bfa0b9;
+    background: #fffdfa;
+    font-family: 'Amiri', serif;
+    font-size: 16px;
+    text-align: right;
+    outline: none;
+  }
+
+  .rsvp-form button {
+    margin-top: 4px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(90deg, #25D366, #1ebc59);
+    color: #fff;
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .rsvp-note {
+    font-size: 12px;
+    color: #82807d;
+  }
+
+  .rsvp-thanks {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 340px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 18px;
+    padding: 28px 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .rsvp-thanks.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .rsvp-thanks-icon {
+    font-size: 30px;
+  }
+
+  .rsvp-thanks-title {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #bfa0b9;
+  }
+
+  .rsvp-thanks-text {
+    font-size: 15px;
+    color: #565654;
+    line-height: 1.8;
+  }
+
+  /* ===================== COMPOSANT 7 : Compte à rebours + message final ===================== */
+
+  .scene8 {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('background swan.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 60px 0;
+  }
+
+  .content8 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #f8f1e7;
+    padding: 20px 24px;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+  }
+
+  .countdown-title {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 700;
+    color: #bfa0b9;
+    text-shadow: 0 0 18px rgba(255, 217, 142, 0.5);
+    opacity: 0;
+    animation: floatInOnce 1.6s ease-out 0.2s forwards;
+  }
+
+  .countdown-row {
+    display: flex;
+    gap: 14px;
+    opacity: 0;
+    animation: floatInOnce 1.8s ease-out 1s forwards;
+  }
+
+  .countdown-box {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(249, 144, 238, 0.5);
+    border-radius: 12px;
+    padding: 12px 14px;
+    min-width: 64px;
+  }
+
+  .countdown-num {
+    display: block;
+    font-size: clamp(22px, 3.4vw, 32px);
+    font-weight: 700;
+    color: #f493e7;
+  }
+
+  .countdown-label {
+    display: block;
+    font-size: 12px;
+    color: #f8f1e7;
+    margin-top: 2px;
+  }
+
+  .final-message {
+    font-size: clamp(16px, 2.2vw, 21px);
+    line-height: 2.1;
+    color: #090909;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    opacity: 0;
+    animation: floatInOnce 1.8s ease-out 2s forwards;
+  }
+</style>
+</head>
+<body class="intro-active">
+  <script>
+    // Empêche le navigateur de restaurer une ancienne position de défilement
+    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+    window.scrollTo(0, 0);
+    document.documentElement.classList.add('intro-active');
+  </script>
+
+  <!-- ===================== VIDEO INTRO ===================== -->
+  <div class="video-intro" id="videoIntro">
+    <video id="introVideo" src="swan1.mp4" autoplay muted playsinline></video>
+  </div>
+
+  <!-- ===================== COMPOSANT 1 ===================== -->
+  <div class="scene">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <div class="bism">بسم الله الرحمان الرحيم</div>
+
+      <div class="verset">
+        «وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا<br>
+        وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ»
+      </div>
+
+      <div class="sourate">(سورة الروم: الآية 21)</div>
+
+      <div class="divider"></div>
+
+      <div class="tashrif">
+        تتشرف عائلتا عبد النبي الحناشيي و محمد الحمري <br>
+        بدعوتكم لحضور عقد قران إبنيهما
+      </div>
+
+      <div class="noms">  وليد و نايلة</div>
+    </div>
+  </div>
+
+  <!-- ===================== COMPOSANT 2 ===================== -->
+  <div class="scene2">
+    <div class="content2">
+      <div class="bimachiaallah">و ذلك بمشيئة الله</div>
+
+      <div class="scratch-wrap" id="scratchWrap">
+        <img class="scratch-photo" src="calender.png" alt="date">
+        <canvas class="scratch-canvas" id="scratchCanvas"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== COMPOSANT 3 ===================== -->
+  <div class="scene3">
+    <div class="content3">
+      <div class="histoire-intro">
+        « كانوا صغار… وما كانوش يعرفوا اللي نهار من الأيام، باش تجمعهم أجمل حكاية حب 🤍 »
+      </div>
+
+      <img class="kids-photo" src="2kids.png" alt="2kids">
+    </div>
+  </div>
+
+  <!-- ===================== COMPOSANT 4a : المكان الأول - جامع عقبة ===================== -->
+  <div class="scene4">
+    <div class="content4">
+      <div class="venue-intro">الصداق (الرجال) سيكون أثر صلاة العصر في</div>
+      <div class="venue-name">جامع عقبة بن نافع</div>
+
+      <img class="venue-photo" src="mosquee-okba.png" alt="جامع عقبة بن نافع">
+
+      <iframe
+        class="venue-maps-embed"
+        src="https://maps.google.com/maps?q=35.6761212,10.0972384&hl=ar&z=16&output=embed"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+
+      <a class="venue-maps-btn"
+         href="https://www.google.com/maps/search/mosqu%C3%A9e+okba+ibn+nafaa/@35.6761212,10.0972384,1430m/data=!3m2!1e3!4b1?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
+         target="_blank" rel="noopener">
+        📍 الموقع على خرائط غوغل
+      </a>
+    </div>
+  </div>
+
+  <!-- ===================== COMPOSANT 4b : المكان الثاني - دار لالة حبيبة ===================== -->
+  <div class="scene4">
+    <div class="content4">
+      <div class="venue-intro">العشاء</div>
+      <div class="venue-name">دار للة حبيبة</div>
+      <img class="venue-photo" src="dar-lella-habiba.png" alt="دار لالة حبيبة">
+
+      <iframe
+        class="venue-maps-embed"
+        src="https://maps.google.com/maps?q=35.6818056,10.1044466&hl=ar&z=16&output=embed"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+
+      <a class="venue-maps-btn"
+         href="https://www.google.com/maps/place/Dar+Lella+Habiba/@35.6818056,10.1018717,715m/data=!3m1!1e3!4m9!3m8!1s0x12fdc557fe694525:0xc02fe19deb4ece47!5m2!4m1!1i2!8m2!3d35.6818056!4d10.1044466!16s%2Fg%2F11r27mk80x?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
+         target="_blank" rel="noopener">
+        📍 الموقع على خرائط غوغل
+      </a>
+    </div>
+  </div>
+
+  <!-- ===================== COMPOSANT 5 : برنامج الحفل ===================== -->
+  <div class="scene5">
+    <div class="timeline-scroll" id="timelineScroll">
+      <div class="timeline-sticky">
+        <div class="timeline-title">برنامج الحفل</div>
+
+        <div class="timeline-track" id="timelineTrack">
+          <div class="timeline-line"></div>
+          <div class="timeline-swan" id="timelineSwan">
+            <img src="swan_rose.jpg" alt="swan">
+          </div>
+
+          <!-- Partie 1 -->
+          <div class="timeline-event" data-index="0">
+            <span class="event-dot"></span>
+            <div class="event-label">
+              <span class="event-title">الصداق في جامع عقبة (الرجال)</span>
+              <span class="event-time">أثر صلاة العصر</span>
+            </div>
+          </div>
+
+          <!-- Partie 2 -->
+          <div class="timeline-event" data-index="1">
+            <span class="event-dot"></span>
+            <div class="event-label">
+              <span class="event-title">الصداق في دار لالة حبيبة</span>
+              <span class="event-time">تكملة مراسم العقد</span>
+            </div>
+          </div>
+
+          <!-- Partie 3 -->
+          <div class="timeline-event" data-index="2">
+            <span class="event-dot"></span>
+            <div class="event-label">
+              <span class="event-title">العشاء</span>
+              <span class="event-time">أثر صلاة المغرب</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== COMPOSANT 6 : Réservation ===================== -->
+  <div class="scene7">
+    <div class="content7">
+      <div class="rsvp-title">هل ستكونون معنا؟</div>
+      <div class="rsvp-sub">أكّدوا حضوركم لنكون على استعداد لاستقبالكم</div>
+
+      <button class="rsvp-btn" id="rsvpOpenBtn" type="button">تأكيد حضوري</button>
+
+      <form class="rsvp-form" id="rsvpForm">
+        <input type="text" id="rsvpName" placeholder="الاسم و اللقب" required>
+        <input type="number" id="rsvpCount" min="1" placeholder="عدد الأشخاص" required>
+        <button type="submit">إرسال عبر واتساب</button>
+        <div class="rsvp-note">سيتم فتح واتساب برسالة جاهزة، فقط اضغطوا إرسال</div>
+      </form>
+
+      <div class="rsvp-thanks" id="rsvpThanks">
+        <div class="rsvp-thanks-icon">🤍</div>
+        <div class="rsvp-thanks-title">شكراً لكم!</div>
+        <div class="rsvp-thanks-text">
+          تم تأكيد حضوركم، نستناوكم بشوق باش نعيشوا معاكم هالفرحة 🤍
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== COMPOSANT 7 : Compte à rebours + message final ===================== -->
+  <div class="scene8">
+    <div class="content8">
+      <div class="countdown-title">باقي على يوم العمر</div>
+
+      <div class="countdown-row" id="countdownRow">
+        <div class="countdown-box"><span class="countdown-num" id="cdDays">--</span><span class="countdown-label">يوم</span></div>
+        <div class="countdown-box"><span class="countdown-num" id="cdHours">--</span><span class="countdown-label">ساعة</span></div>
+        <div class="countdown-box"><span class="countdown-num" id="cdMinutes">--</span><span class="countdown-label">دقيقة</span></div>
+        <div class="countdown-box"><span class="countdown-num" id="cdSeconds">--</span><span class="countdown-label">ثانية</span></div>
+      </div>
+
+      <div class="final-message">
+        فرحتنا ما تكمل كان بوجودكم معانا 🤍<br>
+        نستناوكم باش تشاركونا أجمل نهار في حياتنا،<br>
+        وتكونوا جزء من ذكرياتنا الحلوة.<br>
+        وجودكم يفرّحنا ويكمّل فرحتنا 🤍
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ---------- Video d'intro ---------- */
+    const videoIntro = document.getElementById('videoIntro');
+    const introVideo = document.getElementById('introVideo');
+    const introSkip = document.getElementById('introSkip');
+
+    function endIntro() {
+      if (!videoIntro || videoIntro.classList.contains('fade-out')) return;
+      videoIntro.classList.add('fade-out');
+      document.documentElement.classList.remove('intro-active');
+      document.body.classList.remove('intro-active');
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        videoIntro.style.display = 'none';
+        window.scrollTo(0, 0);
+      }, 1000);
+    }
+
+    if (introVideo) {
+      introVideo.addEventListener('ended', endIntro);
+      introVideo.addEventListener('error', endIntro);
+    }
+    if (introSkip) {
+      introSkip.addEventListener('click', endIntro);
+    }
+    if (videoIntro) {
+      videoIntro.addEventListener('click', (e) => {
+        if (e.target === introSkip) return;
+        endIntro();
+      });
+    }
+    setTimeout(endIntro, 15000);
+
+    /* ---------- Carte à gratter (composant 2) ---------- */
+    const canvas = document.getElementById('scratchCanvas');
+    const ctx = canvas.getContext('2d');
+    const wrap = document.getElementById('scratchWrap');
+    const hint = document.getElementById('scratchHint');
+
+    function resizeCanvas() {
+      const rect = wrap.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+      drawScratchLayer();
+    }
+
+    function drawScratchLayer() {
+      ctx.globalCompositeOperation = 'source-over';
+      const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      grad.addColorStop(0, '#d9b98e');
+      grad.addColorStop(0.5, '#bfa0b9');
+      grad.addColorStop(1, '#8f7d8a');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = 'rgba(255,255,255,0.85)';
+      ctx.font = `${Math.floor(canvas.width * 0.09)}px 'Amiri', serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('اخدش هنا', canvas.width / 2, canvas.height / 2);
+    }
+
+    let isDrawing = false;
+    const totalPixelsSample = 400;
+
+    function getPos(e) {
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return { x: clientX - rect.left, y: clientY - rect.top };
+    }
+
+    function scratchAt(x, y) {
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(x, y, canvas.width * 0.08, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function checkCleared() {
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+      let cleared = 0;
+      const step = Math.floor(imageData.length / 4 / totalPixelsSample) * 4 || 4;
+      let sampled = 0;
+      for (let i = 3; i < imageData.length; i += step) {
+        sampled++;
+        if (imageData[i] < 40) cleared++;
+      }
+      const percent = cleared / sampled;
+      if (percent > 0.55) {
+        canvas.style.transition = 'opacity 0.8s ease';
+        canvas.style.opacity = '0';
+        canvas.style.pointerEvents = 'none';
+      }
+    }
+
+    function startDraw(e) {
+      isDrawing = true;
+      if (hint) hint.style.opacity = '0';
+      const { x, y } = getPos(e);
+      scratchAt(x, y);
+    }
+    function moveDraw(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      const { x, y } = getPos(e);
+      scratchAt(x, y);
+    }
+    function endDraw() {
+      if (!isDrawing) return;
+      isDrawing = false;
+      checkCleared();
+    }
+
+    canvas.addEventListener('mousedown', startDraw);
+    canvas.addEventListener('mousemove', moveDraw);
+    window.addEventListener('mouseup', endDraw);
+    canvas.addEventListener('touchstart', startDraw, { passive: true });
+    canvas.addEventListener('touchmove', moveDraw, { passive: false });
+    canvas.addEventListener('touchend', endDraw);
+    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('load', () => setTimeout(resizeCanvas, 50));
+
+    /* ---------- Timeline scroll (composant 5) ---------- */
+    const scrollContainer = document.getElementById('timelineScroll');
+    const track = document.getElementById('timelineTrack');
+    const swan = document.getElementById('timelineSwan');
+    const events = Array.from(document.querySelectorAll('.timeline-event'));
+
+    function layoutEvents() {
+      const trackHeight = track.getBoundingClientRect().height;
+      scrollContainer.style.height = (events.length * 90) + 'vh';
+
+      const topPad = 30;
+      const bottomPad = 30;
+      const usable = trackHeight - topPad - bottomPad;
+
+      events.forEach((ev, i) => {
+        const pct = events.length === 1 ? 0.5 : i / (events.length - 1);
+        const y = topPad + usable * pct;
+        ev.style.top = y + 'px';
+        ev.dataset.y = y;
+      });
+
+      return { topPad, usable };
+    }
+
+    let layout = layoutEvents();
+
+    function updateTimeline() {
+      const rect = scrollContainer.getBoundingClientRect();
+      const scrollableHeight = rect.height - window.innerHeight;
+      let progress = scrollableHeight > 0 ? (-rect.top) / scrollableHeight : 0;
+      progress = Math.max(0, Math.min(1, progress));
+
+      const swanY = layout.topPad + layout.usable * progress;
+      swan.style.top = swanY + 'px';
+
+      const activeIndex = Math.round(progress * (events.length - 1));
+      events.forEach((ev, i) => {
+        ev.classList.toggle('active', i === activeIndex);
+      });
+    }
+
+    window.addEventListener('scroll', updateTimeline, { passive: true });
+    window.addEventListener('resize', () => {
+      layout = layoutEvents();
+      updateTimeline();
+    });
+    window.addEventListener('load', () => {
+      layout = layoutEvents();
+      updateTimeline();
+    });
+
+    /* ---------- Réservation / RSVP (composant 6) ---------- */
+    const COUPLE_WHATSAPP_NUMBER = '21653550717';
+
+    const rsvpOpenBtn = document.getElementById('rsvpOpenBtn');
+    const rsvpForm = document.getElementById('rsvpForm');
+    const rsvpThanks = document.getElementById('rsvpThanks');
+
+    rsvpOpenBtn.addEventListener('click', () => {
+      rsvpForm.classList.toggle('open');
+    });
+
+    rsvpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('rsvpName').value.trim();
+      const count = document.getElementById('rsvpCount').value.trim();
+      if (!name || !count) return;
+
+      const message = `نحب نأكد حضوري، معاكم ${name}، و باش نجيو ${count}.. الكل في الكل 🤍`;
+      const url = `https://wa.me/${COUPLE_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+
+      rsvpForm.classList.remove('open');
+      rsvpForm.style.display = 'none';
+      rsvpOpenBtn.style.display = 'none';
+      rsvpThanks.classList.add('show');
+    });
+
+    /* ---------- Compte à rebours (composant 7) ---------- */
+    // ⚠️ التاريخ الصحيح: 19 سبتمبر 2026 على الساعة 16:00 (توقيت تونس UTC+1)
+    const WEDDING_DATE = new Date('2026-09-19T16:00:00+01:00').getTime();
+
+    function updateCountdown() {
+      const now = Date.now();
+      let diff = WEDDING_DATE - now;
+      if (diff < 0) diff = 0;
+
+      const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours   = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('cdDays').textContent    = String(days).padStart(2, '0');
+      document.getElementById('cdHours').textContent   = String(hours).padStart(2, '0');
+      document.getElementById('cdMinutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('cdSeconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
