@@ -200,24 +200,25 @@
   }
 
   /* ---- carte à gratter ---- */
-  .scratch-wrap {
-    position: relative;
-    width: min(78vw, 320px);
-    aspect-ratio: 1 / 1;
-    border-radius: 16px;
-    overflow: hidden;
-    opacity: 0;
-    animation: floatInOnce 1.8s ease-out 1s forwards;
-    touch-action: none;
-  }
+.scratch-wrap {
+  position: relative;
+  width: min(90vw, 360px);        /* un peu plus large pour bien lire */
+  aspect-ratio: 4 / 5;            /* ⬅️ format portrait, comme ton image */
+  border-radius: 16px;
+  overflow: hidden;
+  opacity: 0;
+  animation: floatInOnce 1.8s ease-out 1s forwards;
+  touch-action: none;
+}
 
-  .scratch-photo {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.scratch-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;            /* ⬅️ montre TOUTE l'image sans couper */
+  object-position: center;
+}
 
   .scratch-canvas {
     position: absolute;
